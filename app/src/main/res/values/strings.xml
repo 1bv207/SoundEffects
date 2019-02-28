@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">SoundEffects</string>
+    <string name="cymbal">1. Cymbal</string>
+    <string name="clap">2. Clap</string>
+    <string name="bell">3. Bell</string>
+    <string name="drum">4. Drum</string>
+    <string name="record">RECORD</string>
+    <string name="stop">STOP</string>
+    <string name="play">PLAY</string>
+    <string name="delete">DELETE</string>
+    <string name="exit">EXIT</string>
+    <string name="v_record">VOICE_RECORD</string>
+    <string name="v_play">VOICE_PLAY</string>
+    <string name="v_stop">VOICE_STOP</string>
+    <string name="debug">Debug mode</string>
+</resources>

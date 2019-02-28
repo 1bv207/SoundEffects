@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.admin.soundeffects.MainActivity"
+    tools:layout_editor_absoluteY="25dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/azimuth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/roll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <TextView
+            android:id="@+id/pitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/volume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/soundPitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2">
+
+            <Button
+                android:id="@+id/buttonCymbal"
+                android:layout_width="184dp"
+                android:layout_height="160dp"
+                android:onClick="buttonSEClick"
+                android:text="@string/cymbal"
+                android:textAllCaps="false"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/buttonClap"
+                android:layout_width="184dp"
+                android:layout_height="160dp"
+                android:onClick="buttonSEClick"
+                android:text="@string/clap"
+                android:textAllCaps="false"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/buttonBell"
+                android:layout_width="184dp"
+                android:layout_height="160dp"
+                android:onClick="buttonSEClick"
+                android:text="@string/bell"
+                android:textAllCaps="false"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/buttonDrum"
+                android:layout_width="184dp"
+                android:layout_height="160dp"
+                android:onClick="buttonSEClick"
+                android:text="@string/drum"
+                android:textAllCaps="false"
+                android:textSize="30sp" />
+        </GridLayout>
+
+        <TextView
+            android:id="@+id/currentPlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/Record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/optionmode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button_REC"
+                android:layout_width="73.6dp"
+                android:layout_height="match_parent"
+                android:onClick="buttonOptionClick"
+                android:text="@string/record"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/button_STOP"
+                android:layout_width="73.6dp"
+                android:layout_height="match_parent"
+                android:onClick="buttonOptionClick"
+                android:text="@string/stop"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/button_PLAY"
+                android:layout_width="73.6dp"
+                android:layout_height="match_parent"
+                android:onClick="buttonOptionClick"
+                android:text="@string/play"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/button_DEL"
+                android:layout_width="73.6dp"
+                android:layout_height="match_parent"
+                android:onClick="buttonOptionClick"
+                android:text="@string/delete"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/button_EXIT"
+                android:layout_width="73.6dp"
+                android:layout_height="match_parent"
+                android:onClick="buttonOptionClick"
+                android:text="@string/exit"
+                android:textSize="12sp" />
+
+        </GridLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button_V_REC"
+                android:layout_width="122dp"
+                android:layout_height="match_parent"
+                android:onClick="buttonOptionClick"
+                android:text="@string/v_record"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/button_V_STOP"
+                android:layout_width="122dp"
+                android:layout_height="match_parent"
+                android:onClick="buttonOptionClick"
+                android:text="@string/v_stop"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/button_V_PLAY"
+                android:layout_width="122dp"
+                android:layout_height="match_parent"
+                android:onClick="buttonOptionClick"
+                android:text="@string/v_play"
+                android:textSize="12sp" />
+
+        </GridLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

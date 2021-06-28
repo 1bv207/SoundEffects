@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SoundEffects_new</string>
+    <string name="_1_cymbal">1. Cymbal</string>
+    <string name="_2_clap">2. Clap</string>
+    <string name="_3_bell">3. Bell</string>
+    <string name="_4_drum">4. Drum</string>
+    <string name="record">RECORD</string>
+    <string name="stop">STOP</string>
+    <string name="play">PLAY</string>
+    <string name="delete">DELETE</string>
+    <string name="exit">EXIT</string>
+</resources>

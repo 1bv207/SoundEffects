@@ -5,7 +5,7 @@
 
     <item
         android:id="@+id/debug"
-        android:title="@string/debug"
+        android:title="DEBUG"
         android:orderInCategory="100"
         android:checkable="true"
         app:showAsAction="never" />

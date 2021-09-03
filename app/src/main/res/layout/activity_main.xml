@@ -1,87 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-=======
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
->>>>>>> origin/master
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
-    tools:context="com.example.soundeffects_new.MainActivity"
-    android:id="@+id/constraints">
-
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="-1dp"
-        tools:layout_editor_absoluteY="-1dp">
-
-        <androidx.gridlayout.widget.GridLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/buttonCymbal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="buttonSEClick"
-                android:text="@string/_1_cymbal"
-                android:textAllCaps="false"
-                android:textSize="30sp"
-                tools:layout_conversion_absoluteHeight="0dp"
-                tools:layout_conversion_absoluteWidth="0dp" />
-
-            <Button
-                android:id="@+id/buttonClap"
-                android:layout_width="224dp"
-                android:layout_height="wrap_content"
-                android:onClick="buttonSEClick"
-                android:text="@string/_2_clap"
-                android:textAllCaps="false"
-                android:textSize="30sp"
-                app:layout_column="1"
-                app:layout_row="0"
-                tools:layout_conversion_absoluteHeight="0dp"
-                tools:layout_conversion_absoluteWidth="0dp" />
-
-            <Button
-                android:id="@+id/buttonBell"
-                android:layout_width="189dp"
-                android:layout_height="wrap_content"
-                android:onClick="buttonSEClick"
-                android:text="@string/_3_bell"
-                android:textAllCaps="false"
-                android:textSize="30sp"
-                app:layout_column="0"
-                app:layout_row="1"
-                tools:layout_conversion_absoluteHeight="0dp"
-                tools:layout_conversion_absoluteWidth="0dp" />
-
-            <Button
-                android:id="@+id/buttonDrum"
-                android:layout_width="221dp"
-                android:layout_height="wrap_content"
-                android:onClick="buttonSEClick"
-                android:text="@string/_4_drum"
-                android:textAllCaps="false"
-                android:textSize="30sp"
-                app:layout_column="1"
-                app:layout_row="1"
-                tools:layout_conversion_absoluteHeight="0dp"
-                tools:layout_conversion_absoluteWidth="0dp" />
-        </androidx.gridlayout.widget.GridLayout>
-=======
-    tools:context="com.example.admin.soundeffects.MainActivity"
-    tools:layout_editor_absoluteY="25dp">
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/azimuth"
@@ -116,152 +45,222 @@
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:gravity="center_horizontal"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_editor_absoluteX="8dp"
+        app:layout_editor_absoluteY="8dp"
+        tools:ignore="MissingConstraints">
 
-        <GridLayout
+        <androidx.gridlayout.widget.GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:columnCount="2">
+            app:columnCount="2"
+            app:rowCount="2">
 
             <Button
                 android:id="@+id/buttonCymbal"
-                android:layout_width="184dp"
-                android:layout_height="160dp"
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                android:insetLeft="6dp"
+                android:insetRight="6dp"
                 android:onClick="buttonSEClick"
-                android:text="@string/cymbal"
+                android:text="1. Cymbal"
                 android:textAllCaps="false"
-                android:textSize="30sp" />
+                android:textSize="24sp"
+                app:layout_column="0"
+                app:layout_gravity="fill"
+                app:layout_row="0" />
 
             <Button
                 android:id="@+id/buttonClap"
-                android:layout_width="184dp"
-                android:layout_height="160dp"
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                android:insetLeft="6dp"
+                android:insetRight="6dp"
                 android:onClick="buttonSEClick"
-                android:text="@string/clap"
+                android:text="2. Clap"
                 android:textAllCaps="false"
-                android:textSize="30sp" />
+                android:textSize="24sp"
+                app:layout_column="1"
+                app:layout_gravity="fill"
+                app:layout_row="0" />
 
             <Button
                 android:id="@+id/buttonBell"
-                android:layout_width="184dp"
-                android:layout_height="160dp"
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                android:insetLeft="6dp"
+                android:insetRight="6dp"
                 android:onClick="buttonSEClick"
-                android:text="@string/bell"
+                android:text="3. Bell"
                 android:textAllCaps="false"
-                android:textSize="30sp" />
+                android:textSize="24sp"
+                app:layout_column="0"
+                app:layout_gravity="fill"
+                app:layout_row="1" />
 
             <Button
                 android:id="@+id/buttonDrum"
-                android:layout_width="184dp"
-                android:layout_height="160dp"
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                android:insetLeft="6dp"
+                android:insetRight="6dp"
                 android:onClick="buttonSEClick"
-                android:text="@string/drum"
+                android:text="4. Drum"
                 android:textAllCaps="false"
-                android:textSize="30sp" />
-        </GridLayout>
->>>>>>> origin/master
+                android:textSize="24sp"
+                app:layout_column="1"
+                app:layout_gravity="fill"
+                app:layout_row="1" />
+
+        </androidx.gridlayout.widget.GridLayout>
 
         <TextView
             android:id="@+id/currentPlay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-<<<<<<< HEAD
             android:textSize="30sp"
-            tools:layout_conversion_absoluteHeight="0dp"
-            tools:layout_conversion_absoluteWidth="0dp" />
-=======
-            android:textSize="30sp" />
->>>>>>> origin/master
+            tools:layout_conversion_absoluteHeight="40dp"
+            tools:layout_conversion_absoluteWidth="0dp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="346dp" />
 
         <TextView
             android:id="@+id/Record"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-<<<<<<< HEAD
             android:textSize="30sp"
-            tools:layout_conversion_absoluteHeight="0dp"
-            tools:layout_conversion_absoluteWidth="0dp" />
-=======
-            android:textSize="30sp" />
->>>>>>> origin/master
+            tools:layout_conversion_absoluteHeight="40dp"
+            tools:layout_conversion_absoluteWidth="0dp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="386dp" />
 
         <TextView
             android:id="@+id/optionmode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-<<<<<<< HEAD
             android:textSize="30sp"
-            tools:layout_conversion_absoluteHeight="0dp"
-            tools:layout_conversion_absoluteWidth="0dp" />
+            tools:layout_conversion_absoluteHeight="40dp"
+            tools:layout_conversion_absoluteWidth="0dp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="426dp" />
 
         <androidx.gridlayout.widget.GridLayout
-            android:layout_width="wrap_content"
-            android:layout_height="107dp">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button_PLAY"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/button_V_REC"
+                android:layout_width="133dp"
+                android:layout_height="match_parent"
+                android:enabled="false"
+                android:insetLeft="6dp"
+                android:insetRight="6dp"
                 android:onClick="buttonOptionClick"
-                android:text="@string/play"
-                android:textSize="12sp"
-                tools:layout_conversion_absoluteHeight="0dp"
-                tools:layout_conversion_absoluteWidth="0dp" />
+                android:text="VOICE_RECORD (WIP)"
+                android:textSize="10sp"
+                app:layout_gravity="fill" />
 
             <Button
-                android:id="@+id/button_STOP"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/button_V_STOP"
+                android:layout_width="133dp"
+                android:layout_height="match_parent"
+                android:enabled="false"
+                android:insetLeft="6dp"
+                android:insetRight="6dp"
                 android:onClick="buttonOptionClick"
-                android:text="@string/stop"
-                android:textSize="12sp"
-                tools:layout_conversion_absoluteHeight="0dp"
-                tools:layout_conversion_absoluteWidth="0dp" />
+                android:text="VOICE_STOP   (WIP)"
+                android:textSize="10sp"
+                app:layout_gravity="fill" />
+
+            <Button
+                android:id="@+id/button_V_PLAY"
+                android:layout_width="133dp"
+                android:layout_height="match_parent"
+                android:enabled="false"
+                android:insetLeft="6dp"
+                android:insetRight="6dp"
+                android:onClick="buttonOptionClick"
+                android:text="VOICE_PLAY(WIP)"
+                android:textSize="10sp"
+                app:layout_gravity="fill" />
+        </androidx.gridlayout.widget.GridLayout>
+
+        <androidx.gridlayout.widget.GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:columnCount="4"
+            app:rowCount="2">
 
             <Button
                 android:id="@+id/button_REC"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
+                android:insetLeft="6dp"
+                android:insetRight="6dp"
                 android:onClick="buttonOptionClick"
-                android:text="@string/record"
+                android:text="RECORD"
+                android:textAllCaps="false"
                 android:textSize="12sp"
                 app:layout_column="0"
-                app:layout_row="1"
-                tools:layout_conversion_absoluteHeight="0dp"
-                tools:layout_conversion_absoluteWidth="0dp" />
+                app:layout_gravity="fill"
+                app:layout_row="0" />
+
+            <Button
+                android:id="@+id/button_STOP"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:insetLeft="6dp"
+                android:insetRight="6dp"
+                android:onClick="buttonOptionClick"
+                android:text="STOP"
+                android:textSize="12sp"
+                app:layout_column="1"
+                app:layout_gravity="fill"
+                app:layout_row="0" />
+
+            <Button
+                android:id="@+id/button_PLAY"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:insetLeft="6dp"
+                android:insetRight="6dp"
+                android:onClick="buttonOptionClick"
+                android:text="PLAY"
+                android:textSize="12sp"
+                app:layout_column="2"
+                app:layout_gravity="fill"
+                app:layout_row="0" />
 
             <Button
                 android:id="@+id/button_DEL"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
+                android:insetLeft="6dp"
+                android:insetRight="6dp"
                 android:onClick="buttonOptionClick"
-                android:text="@string/delete"
+                android:text="DELETE"
                 android:textSize="12sp"
-                app:layout_column="1"
-                app:layout_row="1"
-                tools:layout_conversion_absoluteHeight="0dp"
-                tools:layout_conversion_absoluteWidth="0dp" />
+                app:layout_column="3"
+                app:layout_gravity="fill"
+                app:layout_row="0" />
 
             <Button
                 android:id="@+id/button_EXIT"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
+                android:insetLeft="6dp"
+                android:insetRight="6dp"
                 android:onClick="buttonOptionClick"
-                android:text="@string/exit"
-                android:textSize="12sp"
-                app:layout_column="3"
-                app:layout_row="1"
-                tools:layout_conversion_absoluteHeight="0dp"
-                tools:layout_conversion_absoluteWidth="0dp" />
+                android:text="EXIT"
+                android:textSize="14sp"
+                app:layout_column="0"
+                app:layout_gravity="fill"
+                app:layout_row="1" />
 
         </androidx.gridlayout.widget.GridLayout>
 
@@ -269,86 +268,3 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-=======
-            android:textSize="30sp" />
-
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:id="@+id/button_REC"
-                android:layout_width="73.6dp"
-                android:layout_height="match_parent"
-                android:onClick="buttonOptionClick"
-                android:text="@string/record"
-                android:textSize="12sp" />
-
-            <Button
-                android:id="@+id/button_STOP"
-                android:layout_width="73.6dp"
-                android:layout_height="match_parent"
-                android:onClick="buttonOptionClick"
-                android:text="@string/stop"
-                android:textSize="12sp" />
-
-            <Button
-                android:id="@+id/button_PLAY"
-                android:layout_width="73.6dp"
-                android:layout_height="match_parent"
-                android:onClick="buttonOptionClick"
-                android:text="@string/play"
-                android:textSize="12sp" />
-
-            <Button
-                android:id="@+id/button_DEL"
-                android:layout_width="73.6dp"
-                android:layout_height="match_parent"
-                android:onClick="buttonOptionClick"
-                android:text="@string/delete"
-                android:textSize="12sp" />
-
-            <Button
-                android:id="@+id/button_EXIT"
-                android:layout_width="73.6dp"
-                android:layout_height="match_parent"
-                android:onClick="buttonOptionClick"
-                android:text="@string/exit"
-                android:textSize="12sp" />
-
-        </GridLayout>
-
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:id="@+id/button_V_REC"
-                android:layout_width="122dp"
-                android:layout_height="match_parent"
-                android:onClick="buttonOptionClick"
-                android:text="@string/v_record"
-                android:textSize="12sp" />
-
-            <Button
-                android:id="@+id/button_V_STOP"
-                android:layout_width="122dp"
-                android:layout_height="match_parent"
-                android:onClick="buttonOptionClick"
-                android:text="@string/v_stop"
-                android:textSize="12sp" />
-
-            <Button
-                android:id="@+id/button_V_PLAY"
-                android:layout_width="122dp"
-                android:layout_height="match_parent"
-                android:onClick="buttonOptionClick"
-                android:text="@string/v_play"
-                android:textSize="12sp" />
-
-        </GridLayout>
-
-    </LinearLayout>
-
-</android.support.constraint.ConstraintLayout>
->>>>>>> origin/master

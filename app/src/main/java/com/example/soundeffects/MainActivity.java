@@ -1,7 +1,13 @@
-package com.example.admin.soundeffects;
+package com.example.soundeffects;
 
-import android.content.Context;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
+import android.Manifest;
 import android.content.DialogInterface;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -12,11 +18,9 @@ import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.media.SoundPool;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,14 +28,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.math.*;
 
-import static java.lang.String.*;
+import static java.lang.String.format;
+import static java.lang.String.valueOf;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
@@ -98,12 +104,33 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     // デバックモード
     boolean debug_mode = false;
 
+    private static final int PERMISSION_WRITE_EX_STR = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         AudioAttributes attr = null;
+
+        /// パーミッション許可を取る
+        if (Build.VERSION.SDK_INT >= 23) {
+            if(ActivityCompat.checkSelfPermission(this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    != PackageManager.PERMISSION_GRANTED
+                    || ActivityCompat.checkSelfPermission(this,
+                    Manifest.permission.READ_CONTACTS)
+                    != PackageManager.PERMISSION_GRANTED)
+            {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{
+                                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                Manifest.permission.READ_CONTACTS
+                        },
+                        PERMISSION_WRITE_EX_STR);
+            }
+        }
+
         // SoundPoolインスタンスの生成
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             soundPool = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
@@ -125,9 +152,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         wavDrum = soundPool.load(this, R.raw.drum, 1);
 
         // 画面のアイテムのインスタンスを取得
-        currentText = findViewById(R.id.currentPlay);
-        recordText = findViewById(R.id.Record);
-        optionModeText = findViewById(R.id.optionmode);
+        currentText = (TextView)findViewById(R.id.currentPlay);
+        recordText = (TextView)findViewById(R.id.Record);
+        optionModeText = (TextView)findViewById(R.id.optionmode);
 
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
@@ -137,6 +164,31 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         // 加速度センサー
         findView();
         initSensor();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(
+            int requestCode, String[] permission, int[] grantResults
+    ) {
+        super.onRequestPermissionsResult(requestCode, permission, grantResults);
+        super.onRequestPermissionsResult(requestCode, permission, grantResults);
+        if (grantResults.length <= 0) {
+            return;
+        }
+        switch (requestCode) {
+            case PERMISSION_WRITE_EX_STR: {
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    /// 許可が取れた場合・・・
+                    /// 必要な処理を書いておく
+                } else {
+                    /// 許可が取れなかった場合・・・
+                    Toast.makeText(this,
+                            "アプリを起動できません....", Toast.LENGTH_LONG).show();
+                    finish();
+                }
+            }
+            return;
+        }
     }
 
     // 4つの音源ボタン用メソッド
@@ -197,7 +249,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 playList.clear();
                 if (playList.isEmpty())
                     recordText.setText("");
-                    optionModeText.setText(optionButton.getText());
+                optionModeText.setText(optionButton.getText());
                 isRecordKeyPushed = false;
                 break;
             case R.id.button_PLAY:                             // PLAYボタンが押された時の動作
@@ -275,27 +327,23 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     // 音源再生用メソッド
-    private void SEPlay(int id) {
+    public void SEPlay(int id) {
         switch (id) {
             case R.id.buttonCymbal:
-                soundPool.play(wavCymbal,1f , 1f, 0, 0, soundPitch);
-                System.out.println(soundPitch);
-                currentText.setText(R.string.cymbal);
+                soundPool.play(wavCymbal,1f , 1f, 0, 0, 1f);
+                currentText.setText((String)"1. Cymbal");
                 break;
             case R.id.buttonClap:
-                soundPool.play(wavClap, 1f, 1f, 0, 0, soundPitch);
-                System.out.println(soundPitch);
-                currentText.setText(R.string.clap);
+                soundPool.play(wavClap, 1f, 1f, 0, 0, 1f);
+                currentText.setText((String)"2. Clap");
                 break;
             case R.id.buttonBell:
-                soundPool.play(wavBell,1f , 1f, 0, 0, soundPitch);
-                System.out.println(soundPitch);
-                currentText.setText(R.string.bell);
+                soundPool.play(wavBell,1f , 1f, 0, 0, 1f);
+                currentText.setText((String)"3. Bell");
                 break;
             case R.id.buttonDrum:
-                soundPool.play(wavDrum,1f , 1f, 0, 0, soundPitch);
-                System.out.println(soundPitch);
-                currentText.setText(R.string.drum);
+                soundPool.play(wavDrum,1f , 1f, 0, 0, 1f);
+                currentText.setText((String)"4. Drum");
                 break;
             default:
                 break;
@@ -303,7 +351,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     // PlayListの再生用メソッド
-    private void PlayListPlaying() {
+    public void PlayListPlaying() {
 
         // プレイリストが空のときのエラー
         if (playList.isEmpty()) {
@@ -366,14 +414,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         super.onPause();
         soundPool.release();
         soundPool = null;
-        sensorManager.unregisterListener(this);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_GAME);
-        sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD), SensorManager.SENSOR_DELAY_GAME);
+        sensorManager.registerListener((SensorEventListener) this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_GAME);
+        sensorManager.registerListener((SensorEventListener) this, sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD), SensorManager.SENSOR_DELAY_GAME);
     }
 
     // MICを使った録音開始
@@ -466,9 +513,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             } else {
                 volumeText.setText("");
             }
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        } catch (IllegalStateException e) {
+        } catch (IllegalArgumentException | IllegalStateException e) {
             e.printStackTrace();
         }
 
@@ -523,4 +568,3 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         return super.onOptionsItemSelected(item);
     }
 }
-

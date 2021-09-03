@@ -1,4 +1,4 @@
-package com.example.soundeffects_new;
+package com.example.soundeffects;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.soundeffects_new", appContext.getPackageName());
+        assertEquals("com.example.soundapp2021", appContext.getPackageName());
     }
 }
